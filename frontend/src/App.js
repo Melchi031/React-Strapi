@@ -5,8 +5,9 @@ import { gql } from 'graphql-tag';
 
 const SETTINGS_QUERY = gql`
   query {
-    setting {
-      message
+    recettes {
+      id
+      Titre
     }
   }
 `;
@@ -20,8 +21,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         {data && (
           <p>
-            {data.setting.message ? (
-              `Message : ${data.setting.message}`
+            {data.recettes[0].Titre ? (
+              `Message : ${data.recettes[0].Titre}`
             ) : (
               <>
                 Pas encore de message, visiter{' '}

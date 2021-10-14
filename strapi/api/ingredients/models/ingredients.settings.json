@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ingredients",
+  "info": {
+    "name": "Ingrédients"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Titre": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

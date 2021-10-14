@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recettes",
+  "info": {
+    "name": "Recettes",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Liste_Ingredients": {
+      "type": "component",
+      "repeatable": true,
+      "component": "recette.liste-d-ingredients",
+      "required": true
+    },
+    "Liste_Etapes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "recette.liste-etapes",
+      "required": true
+    },
+    "Titre": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Portions": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    }
+  }
+}

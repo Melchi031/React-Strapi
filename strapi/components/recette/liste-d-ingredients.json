@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_recette_liste_d_ingredients",
+  "info": {
+    "name": "Liste d'ingrédients",
+    "icon": "apple-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "ingredient": {
+      "unique": true,
+      "model": "ingredients"
+    },
+    "quantite": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "forme": {
+      "type": "string"
+    }
+  }
+}
