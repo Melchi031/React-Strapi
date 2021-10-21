@@ -1,16 +1,19 @@
 import { useQuery } from '@apollo/client';
 import { gql } from 'graphql-tag';
+import { useHistory } from 'react-router-dom';
 
 function ListeDesRecettes() {
   const SETTINGS_QUERY = gql`
     query {
       recettes {
         Titre
+        id
       }
     }
   `;
 
   const { data } = useQuery(SETTINGS_QUERY);
+  const history = useHistory();
 
   return (
     <div>
@@ -29,6 +32,7 @@ function ListeDesRecettes() {
               <tr
                 key={key}
                 className="even:bg-gray-700 hover:bg-gray-500 cursor-pointer"
+                onClick={() => history.push('/recettes/' + recette.id)}
               >
                 <td>{key}</td>
                 <td className="text-left pr-8">{recette.Titre}</td>
