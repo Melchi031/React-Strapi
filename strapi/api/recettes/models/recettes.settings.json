@@ -32,6 +32,10 @@
       "type": "integer",
       "required": true,
       "min": 1
+    },
+    "tags": {
+      "via": "recettes",
+      "collection": "tags"
     }
   }
 }

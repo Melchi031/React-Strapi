@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/ingredients": {
+    "/tags": {
       "get": {
         "deprecated": false,
-        "description": "Find all the ingredients's records",
+        "description": "Find all the tags's records",
         "responses": {
           "200": {
-            "description": "Retrieve ingredients document(s)",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Ingredients"
+                    "$ref": "#/components/schemas/Tags"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Ingredients"
+          "Tags"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new ingredients record",
+        "description": "Create a new tags record",
         "responses": {
           "200": {
-            "description": "Retrieve ingredients document(s)",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ingredients"
+                  "$ref": "#/components/schemas/Tags"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Ingredients"
+          "Tags"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewIngredients"
+                "$ref": "#/components/schemas/NewTags"
               }
             }
           }
         }
       }
     },
-    "/ingredients/count": {
+    "/tags/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the number of ingredients documents",
+        "description": "Retrieve the number of tags documents",
         "responses": {
           "200": {
-            "description": "Retrieve ingredients document(s)",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Ingredients"
+          "Tags"
         ],
         "parameters": []
       }
     },
-    "/ingredients/{id}": {
+    "/tags/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one ingredients record",
+        "description": "Find one tags record",
         "responses": {
           "200": {
-            "description": "Retrieve ingredients document(s)",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ingredients"
+                  "$ref": "#/components/schemas/Tags"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Ingredients"
+          "Tags"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single ingredients record",
+        "description": "Update a single tags record",
         "responses": {
           "200": {
-            "description": "Retrieve ingredients document(s)",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ingredients"
+                  "$ref": "#/components/schemas/Tags"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Ingredients"
+          "Tags"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewIngredients"
+                "$ref": "#/components/schemas/NewTags"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single ingredients record",
+        "description": "Delete a single tags record",
         "responses": {
           "200": {
-            "description": "deletes a single ingredients based on the ID supplied",
+            "description": "deletes a single tags based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Ingredients"
+          "Tags"
         ],
         "parameters": [
           {
@@ -514,53 +514,81 @@
   },
   "components": {
     "schemas": {
-      "Ingredients": {
+      "Tags": {
         "required": [
-          "id",
-          "nom"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "nom": {
+          "Name": {
             "type": "string"
           },
-          "unite_recette": {
-            "type": "string"
+          "recettes": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "Liste_Ingredients",
+                "Liste_Etapes",
+                "Titre",
+                "Portions"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "Liste_Ingredients": {
+                  "type": "component"
+                },
+                "Liste_Etapes": {
+                  "type": "component"
+                },
+                "Titre": {
+                  "type": "string"
+                },
+                "Portions": {
+                  "type": "integer"
+                },
+                "tags": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           },
-          "unite_achat": {
-            "type": "string"
-          },
-          "taux_conversion_RsurA": {
-            "type": "number"
-          },
-          "published_at": {
+          "Color": {
             "type": "string",
-            "format": "date-time"
+            "default": "\"bg-yellow-500\""
           }
         }
       },
-      "NewIngredients": {
-        "required": [
-          "nom"
-        ],
+      "NewTags": {
         "properties": {
-          "nom": {
+          "Name": {
             "type": "string"
           },
-          "unite_recette": {
-            "type": "string"
+          "recettes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
-          "unite_achat": {
-            "type": "string"
-          },
-          "taux_conversion_RsurA": {
-            "type": "number"
-          },
-          "published_at": {
+          "Color": {
             "type": "string",
-            "format": "date-time"
+            "default": "\"bg-yellow-500\""
           },
           "created_by": {
             "type": "string"
@@ -574,7 +602,7 @@
   },
   "tags": [
     {
-      "name": "Ingredients"
+      "name": "Tags"
     }
   ]
 }

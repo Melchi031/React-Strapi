@@ -541,14 +541,23 @@
                 "ingredient": {
                   "required": [
                     "id",
-                    "Titre"
+                    "nom"
                   ],
                   "properties": {
                     "id": {
                       "type": "string"
                     },
-                    "Titre": {
+                    "nom": {
                       "type": "string"
+                    },
+                    "unite_recette": {
+                      "type": "string"
+                    },
+                    "unite_achat": {
+                      "type": "string"
+                    },
+                    "taux_conversion_RsurA": {
+                      "type": "number"
                     },
                     "published_at": {
                       "type": "string"
@@ -597,6 +606,37 @@
           },
           "Portions": {
             "type": "integer"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "Name": {
+                  "type": "string"
+                },
+                "recettes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "Color": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -627,14 +667,23 @@
                 "ingredient": {
                   "required": [
                     "id",
-                    "Titre"
+                    "nom"
                   ],
                   "properties": {
                     "id": {
                       "type": "string"
                     },
-                    "Titre": {
+                    "nom": {
                       "type": "string"
+                    },
+                    "unite_recette": {
+                      "type": "string"
+                    },
+                    "unite_achat": {
+                      "type": "string"
+                    },
+                    "taux_conversion_RsurA": {
+                      "type": "number"
                     },
                     "published_at": {
                       "type": "string"
@@ -683,6 +732,12 @@
           },
           "Portions": {
             "type": "integer"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "ingredients",
   "info": {
-    "name": "Ingrédients"
+    "name": "Ingrédients",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -10,10 +11,19 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "Titre": {
+    "nom": {
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "unite_recette": {
+      "type": "string"
+    },
+    "unite_achat": {
+      "type": "string"
+    },
+    "taux_conversion_RsurA": {
+      "type": "float"
     }
   }
 }
