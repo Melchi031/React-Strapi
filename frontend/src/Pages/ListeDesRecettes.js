@@ -6,7 +6,7 @@ import Tag from '../Components/Tag.js';
 import { useState } from 'react';
 import Fuse from 'fuse.js';
 import { fuseOptions, unpackSearch } from '../Utils/fuseUtil';
-//import diacritics from 'diacritics';
+import diacritics from 'diacritics';
 
 function ListeDesRecettes() {
   const SETTINGS_QUERY = gql`
@@ -32,9 +32,9 @@ function ListeDesRecettes() {
     if (search == '') {
       filteredData = data.recettes; //.recettes ?? [];
     } else {
-      // const diaSearch = diacritics.remove(search);
-      // filteredData = fuse.search(diaSearch);
-      filteredData = unpackSearch(fuse.search(search));
+      const diaSearch = diacritics.remove(search);
+      filteredData = unpackSearch(fuse.search(diaSearch));
+      //filteredData = unpackSearch(fuse.search(search));
     }
   }
 
